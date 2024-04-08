@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import {
   Component,
   inject,
@@ -6,29 +5,17 @@ import {
   signal,
   WritableSignal,
 } from '@angular/core';
-import {
-  FormControl,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { FormControl, Validators } from '@angular/forms';
 import { delay } from 'rxjs';
 
 import { Course, Student } from '../../../../../interfaces/api.interfaces';
-import { LinearSlideComponent } from '../../../../shared/components/linear-slide/linear-slide.component';
+import { SharedModule } from '../../../../shared/shared.module';
 import { StudentsService } from '../../../students/services/students/students.service';
 import { CoursesService } from '../../services/courses/courses.service';
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule,
-    LinearSlideComponent,
-  ],
+  imports: [SharedModule],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.scss',
 })

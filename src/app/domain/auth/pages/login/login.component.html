@@ -14,10 +14,8 @@
 
 <section right-side [formGroup]="formGroup">
   <h1>Hello, Course App</h1>
-  <div form-field *ngIf="signUp">
-    <span class="material-symbols-outlined" translate="no" matIcon="fill">
-      signature
-    </span>
+  <linear-form-field *ngIf="signUp">
+    <linear-icon mode="fill"> signature </linear-icon>
     <input
       placeholder="Name"
       formControlName="name"
@@ -25,11 +23,9 @@
       autocomplete="new-password"
       required
     />
-  </div>
-  <div form-field>
-    <span class="material-symbols-outlined" translate="no" matIcon="fill">
-      person
-    </span>
+  </linear-form-field>
+  <linear-form-field>
+    <linear-icon mode="fill" fontSet="person"> </linear-icon>
     <input
       placeholder="Username"
       formControlName="username"
@@ -37,17 +33,15 @@
       autocomplete="new-password"
       required
     />
-  </div>
-  <div form-field>
-    <span
-      class="material-symbols-outlined"
-      translate="no"
-      matIcon="fill"
+  </linear-form-field>
+  <linear-form-field>
+    <linear-icon
+      mode="fill"
       style="cursor: pointer"
       (click)="passwordVisible = !passwordVisible"
     >
       {{ passwordVisible ? "lock_open" : "lock" }}
-    </span>
+    </linear-icon>
     <input
       formControlName="password"
       placeholder="Password"
@@ -55,7 +49,7 @@
       autocomplete="off"
       required
     />
-  </div>
+  </linear-form-field>
   <button linear-button [disabled]="formGroup.invalid" (click)="onSubmit()">
     {{ linkText }}
   </button>

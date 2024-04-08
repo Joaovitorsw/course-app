@@ -8,9 +8,7 @@
     to the courses page. Here you can see all the courses that are available.
   </p>
   <button linear-button class="add-course" (click)="dialog.showModal()">
-    <span class="material-symbols-outlined" translate="no" matIcon="fill">
-      add
-    </span>
+    <linear-icon mode="fill"> add </linear-icon>
     Add Course
   </button>
 </div>
@@ -21,18 +19,16 @@
     <h2>Course</h2>
     <h3>{{ course.name }}</h3>
     <div class="card-actions">
-      <span
-        class="material-symbols-outlined link-off"
-        translate="no"
-        tooltip="Unlink Course"
+      <linear-icon
+        linear-tooltip="Unlink Course"
+        class="link-off"
         (click)="unlinkWithCourse(course.id)"
       >
         link_off
-      </span>
-      <span
-        tooltip="Edit Course"
-        class="material-symbols-outlined edit"
-        translate="no"
+      </linear-icon>
+      <linear-icon
+        linear-tooltip="Edit Course"
+        class="edit"
         (click)="
           courseId.set(course.id);
           name.setValue(course.name);
@@ -40,7 +36,7 @@
         "
       >
         edit
-      </span>
+      </linear-icon>
     </div>
   </div>
   } @empty {
@@ -55,26 +51,20 @@
     <h3>{{ course.name }}</h3>
     <div class="card-actions">
       @if (course.active && !hasSubscribed(course.id) ) {
-      <span
-        class="material-symbols-outlined link"
-        translate="no"
-        tooltip="Link Course"
+      <linear-icon
+        class="link"
+        linear-tooltip="Link Course"
         (click)="linkWithCourse(course.id)"
       >
         link
-      </span>
+      </linear-icon>
       } @else {
-      <span
-        class="material-symbols-outlined link"
-        translate="no"
-        style="cursor: default"
-      >
-      </span>
+      <linear-icon class="link" translate="no" style="cursor: default">
+      </linear-icon>
       }
-      <span
-        class="material-symbols-outlined edit"
-        translate="no"
-        tooltip="Edit Course"
+      <linear-icon
+        class="edit"
+        linear-tooltip="Edit Course"
         (click)="
           courseId.set(course.id);
           name.setValue(course.name);
@@ -82,10 +72,10 @@
         "
       >
         edit
-      </span>
+      </linear-icon>
       <linear-slide
         [id]="course.id"
-        tooltip="Toggle active"
+        linear-tooltip="Toggle active"
         [checked]="course.active"
         (change)="toggleActive(course)"
       >
@@ -100,9 +90,7 @@
 <dialog #dialog>
   <h1>Create a new Course</h1>
   <div form-field>
-    <span class="material-symbols-outlined" translate="no" matIcon="fill">
-      signature
-    </span>
+    <linear-icon mode="fill"> signature </linear-icon>
     <input
       placeholder="Name"
       autofocus

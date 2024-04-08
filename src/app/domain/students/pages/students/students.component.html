@@ -16,10 +16,9 @@
     </div>
 
     <div class="card-actions">
-      <span
-        tooltip="Edit Student"
-        class="material-symbols-outlined edit"
-        translate="no"
+      <linear-icon
+        linear-tooltip="Edit Student"
+        class="edit"
         (click)="
           dialog.showModal();
           name.setValue(student.name);
@@ -27,11 +26,11 @@
         "
       >
         edit
-      </span>
+      </linear-icon>
 
       <linear-slide
         [id]="student.id"
-        tooltip="Toggle active"
+        linear-tooltip="Toggle active"
         [checked]="student.active"
         (change)="toggleActive(student)"
       >
@@ -43,9 +42,7 @@
 <dialog #dialog>
   <h1>Create a new Student</h1>
   <div form-field>
-    <span class="material-symbols-outlined" translate="no" matIcon="fill">
-      signature
-    </span>
+    <linear-icon mode="fill"> signature </linear-icon>
     <input
       placeholder="Name"
       autofocus

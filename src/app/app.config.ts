@@ -8,7 +8,6 @@ import { GlobalInterceptorFn } from './shared/interceptors/global.interceptor';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter([...routes], withViewTransitions()),
-
     provideHttpClient(withInterceptors([GlobalInterceptorFn])),
   ],
 };

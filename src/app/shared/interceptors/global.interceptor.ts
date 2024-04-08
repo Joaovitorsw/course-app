@@ -6,9 +6,9 @@ import {
 } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { LinearToastService } from 'linear-system';
 import { catchError, delay, finalize, Observable, of, tap } from 'rxjs';
 import { LoaderService } from '../services/loader/loader.service';
-import { ToastService } from '../services/toast/toast.service';
 let counter = 0;
 export const GlobalInterceptorFn: HttpInterceptorFn = (
   req: HttpRequest<unknown>,
@@ -17,7 +17,7 @@ export const GlobalInterceptorFn: HttpInterceptorFn = (
   const token = localStorage.getItem('token');
   const router = inject(Router);
   const loaderService = inject(LoaderService);
-  const toastService = inject(ToastService);
+  const toastService = inject(LinearToastService);
   req = req.clone({
     setHeaders: {
       Authorization: `Bearer ${token}`,

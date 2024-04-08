@@ -1,12 +1,10 @@
-import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, Renderer2 } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { LoaderService } from './shared/services/loader/loader.service';
+import { SharedModule } from './shared/shared.module';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
+  imports: [SharedModule],
   providers: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
