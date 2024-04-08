@@ -1,0 +1,130 @@
+<h1>Courses</h1>
+<div class="welcome-container">
+  <p>
+    Welcome
+    <span>
+      {{ data()?.name }}
+    </span>
+    to the courses page. Here you can see all the courses that are available.
+  </p>
+  <button linear-button class="add-course" (click)="dialog.showModal()">
+    <span class="material-symbols-outlined" translate="no" matIcon="fill">
+      add
+    </span>
+    Add Course
+  </button>
+</div>
+<h1>Active Courses</h1>
+<section>
+  @for (course of data()?.courses; track course.id) {
+  <div class="card">
+    <h2>Course</h2>
+    <h3>{{ course.name }}</h3>
+    <div class="card-actions">
+      <span
+        class="material-symbols-outlined link-off"
+        translate="no"
+        tooltip="Unlink Course"
+        (click)="unlinkWithCourse(course.id)"
+      >
+        link_off
+      </span>
+      <span
+        tooltip="Edit Course"
+        class="material-symbols-outlined edit"
+        translate="no"
+        (click)="
+          courseId.set(course.id);
+          name.setValue(course.name);
+          dialog.showModal()
+        "
+      >
+        edit
+      </span>
+    </div>
+  </div>
+  } @empty {
+  <p>No courses available</p>
+  }
+</section>
+<h1>All Courses</h1>
+<section>
+  @for (course of courses(); track course) {
+  <div class="card">
+    <h2>Course</h2>
+    <h3>{{ course.name }}</h3>
+    <div class="card-actions">
+      @if (course.active && !hasSubscribed(course.id) ) {
+      <span
+        class="material-symbols-outlined link"
+        translate="no"
+        tooltip="Link Course"
+        (click)="linkWithCourse(course.id)"
+      >
+        link
+      </span>
+      } @else {
+      <span
+        class="material-symbols-outlined link"
+        translate="no"
+        style="cursor: default"
+      >
+      </span>
+      }
+      <span
+        class="material-symbols-outlined edit"
+        translate="no"
+        tooltip="Edit Course"
+        (click)="
+          courseId.set(course.id);
+          name.setValue(course.name);
+          dialog.showModal()
+        "
+      >
+        edit
+      </span>
+      <linear-slide
+        [id]="course.id"
+        tooltip="Toggle active"
+        [checked]="course.active"
+        (change)="toggleActive(course)"
+      >
+      </linear-slide>
+    </div>
+  </div>
+  } @empty {
+  <p>No courses available</p>
+  }
+</section>
+
+<dialog #dialog>
+  <h1>Create a new Course</h1>
+  <div form-field>
+    <span class="material-symbols-outlined" translate="no" matIcon="fill">
+      signature
+    </span>
+    <input
+      placeholder="Name"
+      autofocus
+      [formControl]="name"
+      type="text"
+      autocomplete="new-password"
+      required
+    />
+  </div>
+  <div class="dialog-actions">
+    <button
+      linear-button
+      (click)="dialog.close(); onSubmit()"
+      [disabled]="name.invalid"
+    >
+      {{ courseId() ? "Update" : "Create" }}
+    </button>
+    <button
+      linear-button="stroked"
+      (click)="dialog.close(); name.reset(); courseId.set(0)"
+    >
+      Close
+    </button>
+  </div>
+</dialog>

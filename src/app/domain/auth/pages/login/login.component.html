@@ -1,0 +1,62 @@
+<section left-side>
+  <h1>{{ title }}</h1>
+  <p>
+    {{ paragraph }}
+  </p>
+  <button linear-button="stroked" (click)="signUp = !signUp">
+    {{ buttonText }}
+  </button>
+
+  <figure>
+    <img [src]="src" [alt]="alt" />
+  </figure>
+</section>
+
+<section right-side [formGroup]="formGroup">
+  <h1>Hello, Course App</h1>
+  <div form-field *ngIf="signUp">
+    <span class="material-symbols-outlined" translate="no" matIcon="fill">
+      signature
+    </span>
+    <input
+      placeholder="Name"
+      formControlName="name"
+      type="text"
+      autocomplete="new-password"
+      required
+    />
+  </div>
+  <div form-field>
+    <span class="material-symbols-outlined" translate="no" matIcon="fill">
+      person
+    </span>
+    <input
+      placeholder="Username"
+      formControlName="username"
+      type="text"
+      autocomplete="new-password"
+      required
+    />
+  </div>
+  <div form-field>
+    <span
+      class="material-symbols-outlined"
+      translate="no"
+      matIcon="fill"
+      style="cursor: pointer"
+      (click)="passwordVisible = !passwordVisible"
+    >
+      {{ passwordVisible ? "lock_open" : "lock" }}
+    </span>
+    <input
+      formControlName="password"
+      placeholder="Password"
+      [attr.type]="passwordVisible ? 'text' : 'password'"
+      autocomplete="off"
+      required
+    />
+  </div>
+  <button linear-button [disabled]="formGroup.invalid" (click)="onSubmit()">
+    {{ linkText }}
+  </button>
+</section>

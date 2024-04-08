@@ -1,0 +1,73 @@
+<h1>Students</h1>
+<div class="welcome-container">
+  <p>
+    Welcome to the students page. Here you can see all the students that are
+    available.
+  </p>
+</div>
+<section>
+  @for (student of students(); track student.id) {
+  <div class="card">
+    <h2>Student</h2>
+    <div class="user-info-container">
+      <span>Username:</span
+      ><span class="user-info">{{ student.username }}</span> <span>Name:</span
+      ><span class="user-info">{{ student.name }}</span>
+    </div>
+
+    <div class="card-actions">
+      <span
+        tooltip="Edit Student"
+        class="material-symbols-outlined edit"
+        translate="no"
+        (click)="
+          dialog.showModal();
+          name.setValue(student.name);
+          studentId.set(student.id)
+        "
+      >
+        edit
+      </span>
+
+      <linear-slide
+        [id]="student.id"
+        tooltip="Toggle active"
+        [checked]="student.active"
+        (change)="toggleActive(student)"
+      >
+      </linear-slide>
+    </div>
+  </div>
+  }
+</section>
+<dialog #dialog>
+  <h1>Create a new Student</h1>
+  <div form-field>
+    <span class="material-symbols-outlined" translate="no" matIcon="fill">
+      signature
+    </span>
+    <input
+      placeholder="Name"
+      autofocus
+      [formControl]="name"
+      type="text"
+      autocomplete="new-password"
+      required
+    />
+  </div>
+  <div class="dialog-actions">
+    <button
+      linear-button
+      (click)="dialog.close(); onSubmit()"
+      [disabled]="name.invalid"
+    >
+      {{ studentId() ? "Update" : "Create" }}
+    </button>
+    <button
+      linear-button="stroked"
+      (click)="dialog.close(); name.reset(); studentId.set(0)"
+    >
+      Close
+    </button>
+  </div>
+</dialog>

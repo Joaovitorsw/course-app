@@ -1,0 +1,41 @@
+[linear-button] {
+  &:has(.material-symbols-outlined) {
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    align-items: center;
+  }
+  min-width: 120px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  color: var(--white);
+  min-height: 30px;
+  background: var(--red-to-pink-to-purple-horizontal-gradient);
+  background-size: 150% 150%;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+  &:hover {
+    animation: background-wave 2s infinite;
+  }
+  &:disabled {
+    background: var(--gray-400);
+    opacity: 0.5;
+    color: var(--gray-900);
+    cursor: not-allowed;
+  }
+}
+[linear-button="stroked"] {
+  background: transparent;
+  background-color: transparent;
+  border: 1px solid var(--hot-red);
+  color: var(--hot-red);
+
+  &:hover {
+    background-color: var(--hot-red);
+    color: var(--white);
+  }
+  &:disabled {
+    border-color: var(--gray-400);
+  }
+}
