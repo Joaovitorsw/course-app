@@ -9,8 +9,6 @@ import { environment } from '../../../../environments/enviroment';
 export class AuthService {
   private readonly httpClient = inject(HttpClient);
 
-  constructor() {}
-
   signIn(user: { username?: string | null; password?: string | null }) {
     return this.httpClient.post<
       ApiResponse<{

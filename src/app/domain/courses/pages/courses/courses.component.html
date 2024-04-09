@@ -59,11 +59,13 @@
         link
       </linear-icon>
       } @else {
-      <linear-icon class="link" translate="no" style="cursor: default">
-      </linear-icon>
+      <pulso-icon class="link" size="medium" style="cursor: default">
+        rdicon-linkedin
+      </pulso-icon>
       }
-      <linear-icon
+      <pulso-icon
         class="edit"
+        size="medium"
         linear-tooltip="Edit Course"
         (click)="
           courseId.set(course.id);
@@ -71,8 +73,8 @@
           dialog.showModal()
         "
       >
-        edit
-      </linear-icon>
+        rdicon-edit-filled
+      </pulso-icon>
       <linear-slide
         [id]="course.id"
         linear-tooltip="Toggle active"
@@ -89,7 +91,7 @@
 
 <dialog #dialog>
   <h1>Create a new Course</h1>
-  <div form-field>
+  <linear-form-field>
     <linear-icon mode="fill"> signature </linear-icon>
     <input
       placeholder="Name"
@@ -99,7 +101,7 @@
       autocomplete="new-password"
       required
     />
-  </div>
+  </linear-form-field>
   <div class="dialog-actions">
     <button
       linear-button
