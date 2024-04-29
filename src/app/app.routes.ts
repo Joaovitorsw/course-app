@@ -18,6 +18,14 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'pulso',
+    loadComponent() {
+      return import('./domain/pulso/pages/pulso/pulso.component').then(
+        (m) => m.PulsoComponent
+      );
+    },
+  },
+  {
     path: 'students',
     loadComponent() {
       return import('./domain/students/pages/students/students.component').then(

@@ -16,8 +16,9 @@
     </div>
 
     <div class="card-actions">
-      <linear-icon
+      <pulso-icon
         linear-tooltip="Edit Student"
+        size="medium"
         class="edit"
         (click)="
           dialog.showModal();
@@ -25,43 +26,43 @@
           studentId.set(student.id)
         "
       >
-        edit
-      </linear-icon>
+        rdicon-edit-filled
+      </pulso-icon>
 
-      <linear-slide
+      <pulso-switch
         [id]="student.id"
         linear-tooltip="Toggle active"
         [checked]="student.active"
         (change)="toggleActive(student)"
       >
-      </linear-slide>
+      </pulso-switch>
     </div>
   </div>
   }
 </section>
 <dialog #dialog>
   <h1>Create a new Student</h1>
-  <linear-form-field>
-    <linear-icon mode="fill"> signature </linear-icon>
+  <pulso-form-field>
+    <pulso-mat-icon pulsoPrefix> signature </pulso-mat-icon>
+    <label for="name">Name</label>
     <input
-      placeholder="Name"
       autofocus
       [formControl]="name"
       type="text"
       autocomplete="new-password"
       required
     />
-  </linear-form-field>
+  </pulso-form-field>
   <div class="dialog-actions">
     <button
-      linear-button
+      pulso-button="primary"
       (click)="dialog.close(); onSubmit()"
       [disabled]="name.invalid"
     >
       {{ studentId() ? "Update" : "Create" }}
     </button>
     <button
-      linear-button="stroked"
+      pulso-button="secondary"
       (click)="dialog.close(); name.reset(); studentId.set(0)"
     >
       Close

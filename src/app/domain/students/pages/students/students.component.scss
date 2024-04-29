@@ -6,7 +6,7 @@
     margin-bottom: 20px;
     font-size: 24px;
     font-weight: bold;
-    color: var(--electric-violet);
+    color: var(--colorBrandDark);
   }
   p {
     color: var(--gray-700);
@@ -38,9 +38,9 @@
     min-width: 250px;
     max-width: 250px;
     border-radius: 5px;
-    background-color: var(--gray-700);
+    background-color: var(--colorBrandDarkest);
     h2 {
-      color: #b973ff;
+      color: var(--colorBrandLight);
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -64,7 +64,7 @@
     }
   }
 }
-linear-form-field {
+pulso-form-field {
   margin-bottom: 20px;
 }
 .edit {

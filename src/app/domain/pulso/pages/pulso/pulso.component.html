@@ -1,0 +1,255 @@
+<pulso-tabs>
+  <pulso-tab [title]="'Temas'">
+    <pulso-form-field placeholder="Selecione uma opção">
+      <label for="select"> Bandeiras </label>
+      <pulso-select
+        [value]="'drogaraia'"
+        #select
+        placeholder="Selecione uma opção"
+      >
+        <pulso-option [value]="option.value" *ngFor="let option of options">
+          {{ option.text }}
+        </pulso-option>
+      </pulso-select>
+    </pulso-form-field>
+    <button
+      pulso-button
+      color="primary"
+      (click)="changeToken($any(select.value))"
+    >
+      Trocar Tema
+    </button>
+  </pulso-tab>
+  <pulso-tab [title]="'Icones'">
+    <div class="card-container">
+      <div class="card" *ngFor="let icon of icons">
+        <div class="{{ icon.name }} logo "></div>
+        <div><b>Nome:</b> {{ icon.name }}</div>
+        <div><b>Codigo:</b>{{ icon.content }}</div>
+      </div>
+    </div>
+  </pulso-tab>
+  <pulso-tab [title]="'Textos'">
+    <div class="row" style="margin-bottom: 20px; margin-top: 20px">
+      <h2 pulso-subtitle>
+        Nosso único propósito é proporcionar mais
+        <a href=""> saúde e bem-estar </a> para as pessoas <br />
+        em todos os momentos da vida, por meio das nossas marcas e negócios.
+      </h2>
+    </div>
+    <div class="row" style="margin-bottom: 20px; margin-top: 20px">
+      <p pulso-paragraph>
+        A <a href=""> RD – Gente, Saúde e Bem-estar </a>
+        é uma empresa líder no mercado brasileiro de farmácias, com mais 2.100
+        lojas em 23 estados brasileiros. A companhia foi criada em novembro de
+        2011, a partir da fusão entre Raia S.A. e Drogasil S.A., e com receita
+        bruta de R$ 15,5 bilhões em 2018. Somos a maior rede de farmácias do
+        Brasil em receita e número de lojas.
+      </p>
+    </div>
+    <div class="row" style="margin-bottom: 20px; margin-top: 20px">
+      <p pulso-description>
+        A <a href=""> RD – Gente, Saúde e Bem-estar </a>
+        é uma empresa líder no mercado brasileiro de farmácias.
+      </p>
+    </div>
+  </pulso-tab>
+  <pulso-tab [title]="'Botões'">
+    <pulso-accordion expanded="true">
+      <h1 pulso-panel-title>Component Content</h1>
+      <div pulso-panel-description>
+        <ng-container *ngFor="let example of buttonExamples">
+          <div [class]="example.class">
+            <button
+              pulso-button
+              *ngFor="let button of example.buttons"
+              [color]="$any(button.color)"
+            >
+              <pulso-icon>rdicon-default</pulso-icon>
+              {{ button.text }}
+            </button>
+          </div>
+        </ng-container>
+      </div>
+    </pulso-accordion>
+  </pulso-tab>
+  <pulso-tab [title]="'Campos de Formulario'">
+    <pulso-form-field [helperText]="helperText" [fixedLabel]="true">
+      <pulso-mat-icon pulsoPrefix mode="filled" fontSet="person">
+      </pulso-mat-icon>
+      <label for="username"> Hello, Course App </label>
+      <input
+        value="admin"
+        minlength="5"
+        type="text"
+        placeholder="Digite seu nome"
+        autocomplete="new-password"
+        required
+        [formControl]="controlOutline"
+      />
+    </pulso-form-field>
+    <pulso-form-field>
+      <pulso-mat-icon pulsoPrefix mode="filled" fontSet="person">
+      </pulso-mat-icon>
+      <label for="username"> Hello, Course App </label>
+      <input
+        value="admin"
+        minlength="5"
+        type="text"
+        autocomplete="new-password"
+        required
+        [formControl]="controlFixed"
+      />
+    </pulso-form-field>
+    <pulso-form-field [helperText]="helperText">
+      <label for="select"> Options </label>
+      <pulso-select
+        placeholder="Selecione uma opção"
+        [formControl]="control"
+        [selectSearch]="{
+      isServer: false,
+    }"
+      >
+        <pulso-option [value]="null"> Selecione uma opção </pulso-option>
+        <pulso-option value="1">
+          <pulso-mat-icon pulsoPrefix mode="filled" fontSet="person">
+          </pulso-mat-icon>
+          Option 1
+        </pulso-option>
+        <pulso-option
+          [value]="option.value"
+          *ngFor="let option of optionListSecond"
+        >
+          {{ option.text }}</pulso-option
+        >
+      </pulso-select>
+    </pulso-form-field>
+    <pulso-form-field
+      placeholder="Selecione uma opção"
+      [helperText]="helperText"
+    >
+      <label for="select"> Options </label>
+      <pulso-select [formControl]="control2" placeholder="Selecione uma opção">
+        <pulso-option
+          [value]="option.value"
+          *ngFor="let option of optionListFirst"
+          >{{ option.text }}</pulso-option
+        >
+      </pulso-select>
+    </pulso-form-field>
+    <div class="row">
+      <pulso-switch [disabled]="true"></pulso-switch>
+      <pulso-switch></pulso-switch>
+      <pulso-switch [disabled]="true" [checked]="true"></pulso-switch>
+      <pulso-switch [checked]="true"></pulso-switch>
+    </div>
+  </pulso-tab>
+  <pulso-tab [title]="'Toast'">
+    <div class="column" [formGroup]="toastForm">
+      <div class="row">
+        <pulso-form-field>
+          <label for="title"> Title </label>
+          <input type="text" formControlName="title" />
+        </pulso-form-field>
+        <pulso-form-field>
+          <label for="message"> Message </label>
+          <input type="text" formControlName="message" />
+        </pulso-form-field>
+        <pulso-form-field>
+          <label for="message"> Timer </label>
+          <input type="number" formControlName="timer" />
+        </pulso-form-field>
+        <pulso-form-field placeholder="Selecione um tipo">
+          <label for="select"> Type </label>
+          <pulso-select
+            formControlName="type"
+            placeholder="Selecione uma opção"
+          >
+            <pulso-option value="show">
+              <pulso-icon> rdicon-default </pulso-icon>
+              Show
+            </pulso-option>
+            <pulso-option value="success">
+              <pulso-icon> rdicon-checkmark-circle </pulso-icon> Success
+            </pulso-option>
+            <pulso-option value="informative">
+              <pulso-icon> rdicon-warning-cicle-filled </pulso-icon> Informative
+            </pulso-option>
+            <pulso-option value="warning">
+              <pulso-icon> rdicon-warning-filled </pulso-icon> Warning
+            </pulso-option>
+            <pulso-option value="error">
+              <pulso-icon> rdicon-dismiss-circle-filled </pulso-icon> Error
+            </pulso-option>
+          </pulso-select>
+        </pulso-form-field>
+      </div>
+
+      <div
+        class="row"
+        style="width: 100%; justify-content: center; margin-bottom: 80px"
+      >
+        <button
+          style="min-width: 125px; width: 125px; margin-bottom: 20px"
+          pulso-button
+          [disabled]="toastForm.invalid"
+          color="primary"
+          (click)="openToast()"
+        >
+          Show Toast
+        </button>
+      </div>
+    </div>
+  </pulso-tab>
+
+  <pulso-tab [title]="'Tooltip'">
+    <div [formGroup]="tooltipForm">
+      <pulso-form-field>
+        <label for="message"> Show Delay </label>
+        <input type="number" formControlName="showDelay" /> </pulso-form-field
+      ><pulso-form-field>
+        <label for="message"> Hide Delay </label>
+        <input type="number" formControlName="hideDelay" />
+      </pulso-form-field>
+      <pulso-form-field placeholder="Selecione um position">
+        <label for="position"> Position </label>
+        <pulso-select
+          formControlName="position"
+          placeholder="Selecione uma posição"
+        >
+          <pulso-option
+            [value]="option.value"
+            *ngFor="let option of optionTooltip"
+          >
+            {{ option.text }}
+          </pulso-option>
+        </pulso-select>
+      </pulso-form-field>
+    </div>
+
+    <div
+      class="row"
+      style="
+        width: 100%;
+        min-height: 300px;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <button
+        pulso-tooltip="Show tooltip toast with the values filled in the form"
+        [pulso-tooltip-position]="$any(tooltipForm.value.position)"
+        [pulso-tooltip-show-delay]="$any(tooltipForm.value.showDelay)"
+        [pulso-tooltip-hide-delay]="$any(tooltipForm.value.hideDelay)"
+        style="width: 200px"
+        pulso-button
+        color="primary"
+      >
+        Show tooltip
+      </button>
+    </div>
+  </pulso-tab>
+  <pulso-tab [title]="'Refresh'">
+    <pulso-refresh [width]="150" [height]="150"></pulso-refresh>
+  </pulso-tab>
+</pulso-tabs>

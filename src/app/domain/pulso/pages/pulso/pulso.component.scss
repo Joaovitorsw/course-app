@@ -1,0 +1,67 @@
+:host {
+  pulso-accordion,
+  pulso-switch,
+  pulso-form-field {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .card-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: 32px 20px;
+  }
+
+  .card {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 20px;
+    gap: 10px;
+    border-radius: 10px;
+    .logo {
+      font-size: 60px;
+    }
+
+    b {
+      font-weight: bold;
+    }
+  }
+
+  pulso-accordion button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .row {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    &.black {
+      background-color: var(--colorBrandDark);
+      margin-bottom: 20px;
+      padding: 0px 10px;
+      border-radius: 8px;
+    }
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    pulso-form-field {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .row {
+      flex-direction: column;
+    }
+  }
+}

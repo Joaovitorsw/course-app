@@ -7,8 +7,12 @@
     </span>
     to the courses page. Here you can see all the courses that are available.
   </p>
-  <button linear-button class="add-course" (click)="dialog.showModal()">
-    <linear-icon mode="fill"> add </linear-icon>
+  <button
+    pulso-button="primary"
+    class="add-course"
+    (click)="dialog.showModal()"
+  >
+    <pulso-mat-icon mode="filled"> add </pulso-mat-icon>
     Add Course
   </button>
 </div>
@@ -19,15 +23,17 @@
     <h2>Course</h2>
     <h3>{{ course.name }}</h3>
     <div class="card-actions">
-      <linear-icon
+      <pulso-icon
+        size="medium"
         linear-tooltip="Unlink Course"
         class="link-off"
         (click)="unlinkWithCourse(course.id)"
       >
-        link_off
-      </linear-icon>
-      <linear-icon
+        rdicon-link
+      </pulso-icon>
+      <pulso-icon
         linear-tooltip="Edit Course"
+        size="medium"
         class="edit"
         (click)="
           courseId.set(course.id);
@@ -35,8 +41,8 @@
           dialog.showModal()
         "
       >
-        edit
-      </linear-icon>
+        rdicon-edit-filled
+      </pulso-icon>
     </div>
   </div>
   } @empty {
@@ -51,16 +57,16 @@
     <h3>{{ course.name }}</h3>
     <div class="card-actions">
       @if (course.active && !hasSubscribed(course.id) ) {
-      <linear-icon
+      <pulso-icon
         class="link"
+        size="medium"
         linear-tooltip="Link Course"
         (click)="linkWithCourse(course.id)"
       >
-        link
-      </linear-icon>
+        rdicon-link
+      </pulso-icon>
       } @else {
       <pulso-icon class="link" size="medium" style="cursor: default">
-        rdicon-linkedin
       </pulso-icon>
       }
       <pulso-icon
@@ -75,13 +81,13 @@
       >
         rdicon-edit-filled
       </pulso-icon>
-      <linear-slide
+      <pulso-switch
         [id]="course.id"
         linear-tooltip="Toggle active"
         [checked]="course.active"
         (change)="toggleActive(course)"
       >
-      </linear-slide>
+      </pulso-switch>
     </div>
   </div>
   } @empty {
@@ -91,27 +97,27 @@
 
 <dialog #dialog>
   <h1>Create a new Course</h1>
-  <linear-form-field>
-    <linear-icon mode="fill"> signature </linear-icon>
+  <pulso-form-field>
+    <pulso-mat-icon pulsoPrefix> signature </pulso-mat-icon>
+    <label>Name</label>
     <input
-      placeholder="Name"
       autofocus
       [formControl]="name"
       type="text"
       autocomplete="new-password"
       required
     />
-  </linear-form-field>
+  </pulso-form-field>
   <div class="dialog-actions">
     <button
-      linear-button
+      pulso-button="primary"
       (click)="dialog.close(); onSubmit()"
       [disabled]="name.invalid"
     >
       {{ courseId() ? "Update" : "Create" }}
     </button>
     <button
-      linear-button="stroked"
+      pulso-button="secondary"
       (click)="dialog.close(); name.reset(); courseId.set(0)"
     >
       Close

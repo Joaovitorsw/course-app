@@ -3,7 +3,7 @@
   <p>
     {{ paragraph }}
   </p>
-  <button linear-button="stroked" (click)="signUp = !signUp">
+  <button pulso-button color="secondary" (click)="signUp = !signUp">
     {{ buttonText }}
   </button>
 
@@ -14,43 +14,55 @@
 
 <section right-side [formGroup]="formGroup">
   <h1>Hello, Course App</h1>
-  <linear-form-field *ngIf="signUp">
-    <linear-icon mode="fill"> signature </linear-icon>
+  <pulso-form-field *ngIf="signUp">
+    <pulso-mat-icon pulsoPrefix> signature </pulso-mat-icon>
+    <label for="name"> Name </label>
     <input
-      placeholder="Name"
       formControlName="name"
       type="text"
       autocomplete="new-password"
       required
     />
-  </linear-form-field>
-  <linear-form-field>
-    <linear-icon mode="fill" fontSet="person"> </linear-icon>
+  </pulso-form-field>
+  <pulso-form-field [fixedLabel]="true">
+    <pulso-mat-icon pulsoPrefix mode="filled" fontSet="person">
+    </pulso-mat-icon>
+    <label for="username"> Username </label>
     <input
-      placeholder="Username"
       formControlName="username"
       type="text"
+      placeholder="teste de placeholder"
       autocomplete="new-password"
       required
     />
-  </linear-form-field>
-  <linear-form-field>
-    <linear-icon
-      mode="fill"
+  </pulso-form-field>
+  <pulso-form-field>
+    <pulso-icon
+      size="medium"
+      pulsoPrefix
       style="cursor: pointer"
       (click)="passwordVisible = !passwordVisible"
     >
-      {{ passwordVisible ? "lock_open" : "lock" }}
-    </linear-icon>
+      {{
+        passwordVisible
+          ? "rdicon-lock-open-filled"
+          : "rdicon-lock-closed-filled"
+      }}
+    </pulso-icon>
+    <label for="password"> Password </label>
     <input
       formControlName="password"
-      placeholder="Password"
       [attr.type]="passwordVisible ? 'text' : 'password'"
       autocomplete="off"
       required
     />
-  </linear-form-field>
-  <button linear-button [disabled]="formGroup.invalid" (click)="onSubmit()">
+  </pulso-form-field>
+  <button
+    pulso-button
+    color="primary"
+    [disabled]="formGroup.invalid"
+    (click)="onSubmit()"
+  >
     {{ linkText }}
   </button>
 </section>

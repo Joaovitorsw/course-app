@@ -1,6 +1,12 @@
-import { Component, inject, OnInit, Renderer2 } from '@angular/core';
+import { Component, Inject, inject, OnInit, Renderer2 } from '@angular/core';
+import { Brand } from '@raiadrogasil/pulso-tokens';
+import {
+  PULSO_SETTINGS_TOKEN,
+  PulsoSettings,
+} from 'pulso-angular-design-system';
 import { LoaderService } from './shared/services/loader/loader.service';
 import { SharedModule } from './shared/shared.module';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -13,6 +19,9 @@ export class AppComponent implements OnInit {
   title = 'Course App';
   readonly loaderService = inject(LoaderService);
   readonly renderer2 = inject(Renderer2);
+  constructor(@Inject(PULSO_SETTINGS_TOKEN) readonly settings: PulsoSettings) {}
+
+  tokenSelected: Brand = 'drogaraia';
   get token() {
     return localStorage.getItem('token');
   }

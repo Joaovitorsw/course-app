@@ -1,19 +1,18 @@
 <header>
-  <img
-    routerLink="/"
-    (click)="removeToken()"
-    class="logo"
-    src="assets/logo.svg"
-    alt="logo.svg"
-  />
+  <pulso-logo
+    [width]="'100%'"
+    [height]="'30'"
+    [token]="$any(settings.token)"
+  ></pulso-logo>
 </header>
 <div class="topnav" *ngIf="token">
   <a routerLink="/courses" routerLinkActive="active">Courses</a>
   <a routerLink="/students" routerLinkActive="active">Students</a>
+  <a routerLink="/pulso" routerLinkActive="active">Pulso</a>
 </div>
 <main class="main">
+  <router-outlet></router-outlet>
   <div class="loader-container">
     <div class="loader"></div>
   </div>
-  <router-outlet></router-outlet>
 </main>

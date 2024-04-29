@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { LinearSystemModule } from 'linear-system';
+import { PulsoModule, PulsoSharedModule } from 'pulso-angular-design-system';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -10,14 +11,21 @@ import { LinearSystemModule } from 'linear-system';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    LinearSystemModule,
+    PulsoSharedModule,
+    PulsoModule.forRoot({
+      token: 'drogaraia',
+      formField: {
+        size: 'medium',
+      },
+    }),
   ],
   exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    LinearSystemModule,
+    PulsoModule,
+    PulsoSharedModule,
   ],
 })
 export class SharedModule {}

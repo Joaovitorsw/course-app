@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SharedModule } from '../../../../shared/shared.module';
@@ -11,16 +11,24 @@ import { AuthService } from '../../services/auth/auth.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   formGroup = new FormGroup({
-    name: new FormControl('João Vitor', [Validators.required]),
-    username: new FormControl('joaovitorswbr', [Validators.required]),
+    name: new FormControl('João Vitor', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
+    username: new FormControl('joaovitorswbr', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
     password: new FormControl('password', [Validators.required]),
   });
   signUp: boolean = false;
   passwordVisible: boolean = false;
   private readonly router = inject(Router);
   private readonly authService = inject(AuthService);
+
+  ngOnInit(): void {}
 
   onSubmit() {
     const method = this.signUp ? 'signUp' : 'signIn';

@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   h1 {
-    color: var(--electric-violet);
+    color: var(--colorBrandDark);
     font-size: 24px;
     font-weight: bold;
   }
@@ -16,6 +16,8 @@
     gap: 10px;
   }
   [left-side] {
+    margin-top: 20px;
+
     p {
       padding: 10px;
       width: 100%;
@@ -28,7 +30,7 @@
     figure {
       margin-top: 40px;
     }
-    border-right: 1px solid oklch(0.62 0.27 301.4 / 0.21);
+    border-right: 1px solid var(--colorBrandPureOpacity20);
   }
   [right-side] {
     justify-content: center;
@@ -39,10 +41,10 @@
   }
   button {
     margin-top: 20px;
-    min-width: 300px;
+    min-width: 280px;
     max-width: 150px;
   }
-  linear-form-field {
+  pulso-form-field {
     max-width: 280px;
     width: 100%;
   }

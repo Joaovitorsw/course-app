@@ -1,14 +1,20 @@
 :host {
   header {
+    display: flex;
+    justify-content: space-between;
     padding: 10px;
+    background-color: var(--colorBrandDark);
   }
-  .logo {
-    width: 120px;
+  pulso-logo {
     cursor: pointer;
   }
   main {
     padding: 10px;
   }
+}
+.row {
+  display: flex;
+  gap: 10px;
 }
 .loader-container {
   width: 100%;
@@ -16,15 +22,16 @@
   position: fixed;
   top: 0;
   left: 0;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   opacity: 0;
   background-color: transparent;
   z-index: -999;
-  transition: all 0.3s ease-in-out;
   &.show {
     z-index: 999;
+    display: flex;
+    transition: all 0.3s ease-in-out;
     opacity: 1;
     background-color: #10101085;
   }
@@ -52,10 +59,10 @@
     }
 
     &.active {
-      background-color: var(--electric-violet);
+      background-color: var(--colorBrand200);
       color: white;
     }
   }
   margin-bottom: 20px;
-  background-color: var(--gray-700);
+  background-color: var(--colorBrand900);
 }
