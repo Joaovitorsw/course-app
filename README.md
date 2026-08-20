@@ -120,11 +120,11 @@ npm start
 | `angular` |
 | `typescript` |
 | `rxjs` |
+| `course-app` |
+| `students` |
+| `auth` |
 | `frontend` |
 | `spa` |
-| `course-app` |
-| `css` |
-| `html` |
 
 </div>
 
