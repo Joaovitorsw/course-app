@@ -34,8 +34,9 @@
 
 <div align="center">
 
-Deploy/preview do projeto disponível em: [Clique Aqui](https://karma-runner.github.io)
+Preview visual do projeto:
 
+<kbd><img src=".github/assets/project-cover.png" alt="Preview do projeto"/></kbd>
 
 </div>
   
@@ -45,7 +46,7 @@ Deploy/preview do projeto disponível em: [Clique Aqui](https://karma-runner.git
 
 <div align="center">
 
-Aplicação Angular criada para praticar arquitetura de componentes, rotas, services, consumo de APIs e organização de interfaces web modernas.
+Aplicação Angular 17 para fluxo administrativo de cursos e alunos, com autenticação, rotas protegidas, serviços por domínio e componentes compartilhados de UI.
 
 ---
 
@@ -73,12 +74,13 @@ Aplicação Angular criada para praticar arquitetura de componentes, rotas, serv
 
 |  :page_facing_up:  |
 | :----------------: |
-| Componentizacao |
-| Rotas |
+| Arquitetura por domínio |
+| Autenticação |
+| Rotas protegidas |
+| Interceptors |
 | Services |
-| RxJS |
-| Formulários |
-| Consumo de API |
+| Componentes compartilhados |
+| Feedback visual com loader/toast |
 
 </div>
 
@@ -90,7 +92,9 @@ Aplicação Angular criada para praticar arquitetura de componentes, rotas, serv
 
 |                     :page_facing_up:                      |
 | :-------------------------------------------------------: |
-| Gerenciar fluxo visual de cursos e conteudos |
+| Organizar telas de login, cursos e alunos em módulos de domínio |
+| Consumir serviços de autenticação, cursos e estudantes |
+| Padronizar feedback de carregamento e notificações na interface |
 
 </div>
 
